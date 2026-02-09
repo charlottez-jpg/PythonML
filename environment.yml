@@ -1,0 +1,43 @@
+#conda env create -f environment.yml
+#conda env list
+#conda env remove --name PythonForAnalytics
+#conda env update --file environment.yml
+#conda activate PythonForAnalytics
+#conda update --all # update all packages
+name: msca
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.6
+  - pylint
+  - pip     # a more general python package installer
+  - openssl # technical infrastructure
+  - flask   # web/api framework
+  - pyarrow # fast alternative to csv
+  # Data science libraries
+  - pandas  # dataframe library
+  - scikit-learn # collection of machine learning algos
+  # Visualization libraries
+  - seaborn # charting package which is built on top of matplotlib
+  - altair  # charting package which provides a python interface to the vega-lite library
+  - bokeh   # charting package
+  - bqplot  # charting package from bloomberg
+  #- pyviz     # related to holoviz?
+  #- holoviz   # meta package which installs holoviews, panel, hvplot, etc.
+  # Notebook extensions
+  - nb_conda # load conda environments in jupyter
+  - rise     # presentations in jupyter
+  - tqdm
+  - nbtutor # brings pythontutor into jupyter, execute `%load_ext nbtutor` to load extension, `%%nbtutor` to evaluate cell (`%%nbtutor -r` to reset variables)
+  - jupyter_contrib_nbextensions #used to be under pip, under conda, doesn't require `jupyter contrib nbextension install ...`
+  - jupyter_nbextensions_configurator #enable nb_conda to allow use of custom conda envs
+  - pip:
+    - wget    # easy way to download files
+    #- https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+    - Flask-Testing
+    - nbdime # makes it easy to diff rendered notebooks
+    - pixiedust
+    #- google-cloud-firestore # to enable firestore for pusblishing student cell contents
+    #- lolviz # visualize data structures (only useful for teaching and learning)
+    #- kedro #McKinsey data science template
